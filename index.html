@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Unit Converter</h1>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'length')">Length</button>
+    <button class="tablinks" onclick="openTab(event, 'temperature')">Temperature</button>
+    <button class="tablinks" onclick="openTab(event, 'area')">Area</button>
+    <button class="tablinks" onclick="openTab(event, 'volume')">Volume</button>
+    <button class="tablinks" onclick="openTab(event, 'time')">Time</button>
+    <button class="tablinks" onclick="openTab(event, 'weight')">Weight</button>
+  </div>
+
+  <div id="length" class="tabcontent">
+    <h2>Length Converter</h2>
+    <div class="converter">
+      <input type="number" id="lengthInput" placeholder="Enter value">
+      <select id="lengthUnitFrom">
+        <option value="mm">Millimeter (mm)</option>
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="in">Inch (in)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+        <option value="mi">Mile (mi)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="lengthResult" disabled>
+      <select id="lengthUnitTo">
+        <option value="mm">Millimeter (mm)</option>
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="in">Inch (in)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+        <option value="mi">Mile (mi)</option>
+      </select>
+    </div>
+    <button onclick="convertLength()">Convert</button>
+  </div>
+
+  <div id="temperature" class="tabcontent">
+    <h2>Temperature Converter</h2>
+    <div class="converter">
+      <input type="number" id="tempInput" placeholder="Enter value">
+      <select id="tempUnitFrom">
+        <option value="c">Celsius (°C)</option>
+        <option value="f">Fahrenheit (°F)</option>
+        <option value="k">Kelvin (K)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="tempResult" disabled>
+      <select id="tempUnitTo">
+        <option value="c">Celsius (°C)</option>
+        <option value="f">Fahrenheit (°F)</option>
+        <option value="k">Kelvin (K)</option>
+      </select>
+    </div>
+    <button onclick="convertTemperature()">Convert</button>
+  </div>
+
+  <div id="area" class="tabcontent">
+    <h2>Area Converter</h2>
+    <div class="converter">
+      <input type="number" id="areaInput" placeholder="Enter value">
+      <select id="areaUnitFrom">
+        <option value="sqm">Square meter (sqm)</option>
+        <option value="sqft">Square foot (sqft)</option>
+        <option value="sqyd">Square yard (sqyd)</option>
+        <option value="acre">Acre (acre)</option>
+        <option value="hectare">Hectare (ha)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="areaResult" disabled>
+      <select id="areaUnitTo">
+        <option value="sqm">Square meter (sqm)</option>
+        <option value="sqft">Square foot (sqft)</option>
+        <option value="sqyd">Square yard (sqyd)</option>
+        <option value="acre">Acre (acre)</option>
+        <option value="hectare">Hectare (ha)</option>
+      </select>
+    </div>
+    <button onclick="convertArea()">Convert</button>
+  </div>
+
+  <div id="volume" class="tabcontent">
+    <h2>Volume Converter</h2>
+    <div class="converter">
+      <input type="number" id="volumeInput" placeholder="Enter value">
+      <select id="volumeUnitFrom">
+        <option value="ml">Milliliter (ml)</option>
+        <option value="l">Liter (l)</option>
+        <option value="cubicm">Cubic meter (m³)</option>
+        <option value="cubicft">Cubic foot (ft³)</option>
+        <option value="gallon">US Gallon (gal)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="volumeResult" disabled>
+      <select id="volumeUnitTo">
+        <option value="ml">Milliliter (ml)</option>
+        <option value="l">Liter (l)</option>
+        <option value="cubicm">Cubic meter (m³)</option>
+        <option value="cubicft">Cubic foot (ft³)</option>
+        <option value="gallon">US Gallon (gal)</option>
+      </select>
+    </div>
+    <button onclick="convertVolume()">Convert</button>
+  </div>
+
+  <div id="time" class="tabcontent">
+    <h2>Time Converter</h2>
+    <div class="converter">
+      <input type="number" id="timeInput" placeholder="Enter value">
+      <select id="timeUnitFrom">
+        <option value="sec">Second (s)</option>
+        <option value="min">Minute (min)</option>
+        <option value="hr">Hour (hr)</option>
+        <option value="day">Day (day)</option>
+        <option value="week">Week (week)</option>
+        <option value="month">Month (month)</option>
+        <option value="year">Year (year)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="timeResult" disabled>
+      <select id="timeUnitTo">
+        <option value="sec">Second (s)</option>
+        <option value="min">Minute (min)</option>
+        <option value="hr">Hour (hr)</option>
+        <option value="day">Day (day)</option>
+        <option value="week">Week (week)</option>
+        <option value="month">Month (month)</option>
+        <option value="year">Year (year)</option>
+      </select>
+    </div>
+    <button onclick="convertTime()">Convert</button>
+  </div>
+
+  <div id="weight" class="tabcontent">
+    <h2>Weight Converter</h2>
+    <div class="converter">
+      <input type="number" id="weightInput" placeholder="Enter value">
+      <select id="weightUnitFrom">
+        <option value="mg">Milligram (mg)</option>
+        <option value="g">Gram (g)</option>
+        <option value="kg">Kilogram (kg)</option>
+        <option value="oz">Ounce (oz)</option>
+        <option value="lb">Pound (lb)</option>
+        <option value="ton">Ton (ton)</option>
+      </select>
+    </div>
+    <div class="converter">
+      <input type="number" id="weightResult" disabled>
+      <select id="weightUnitTo">
+        <option value="mg">Milligram (mg)</option>
+        <option value="g">Gram (g)</option>
+        <option value="kg">Kilogram (kg)</option>
+        <option value="oz">Ounce (oz)</option>
+        <option value="lb">Pound (lb)</option>
+        <option value="ton">Ton (ton)</option>
+      </select>
+    </div>
+    <button onclick="convertWeight()">Convert</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
